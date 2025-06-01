@@ -7,11 +7,16 @@
   color: #ddd;
 }
 
-body, html {
+html {
   height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100%;
   background: #121217;
-  overflow-x: hidden;
   position: relative;
+  overflow-x: clip;
 }
 
 /* Fundo embaçado */
@@ -39,11 +44,12 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 header h1 {
   font-size: 1.8rem;
-  color: #c8a2c8;
+  color: #e0c5f9;
   font-weight: 700;
   text-shadow: 0 0 5px #9b59b6;
 }
@@ -59,12 +65,13 @@ nav ul {
 
 nav ul li a {
   text-decoration: none;
-  color: #d1b3e0;
+  color: #e1c1ff;
   font-weight: 600;
   font-size: 1rem;
   padding: 6px 12px;
   border-radius: 12px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: all 0.25s ease;
+  transform: scale(1);
 }
 
 nav ul li a:hover,
@@ -72,6 +79,7 @@ nav ul li a:focus {
   background-color: #7e57c2;
   color: #fff;
   box-shadow: 0 0 8px #9b59b6;
+  transform: scale(1.05);
 }
 
 /* Container do cubo */
@@ -80,7 +88,7 @@ nav ul li a:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 140px);
+  height: calc(100vh - 190px); /* ajuste para rodapé */
 }
 
 /* Canvas do cubo */
@@ -103,6 +111,13 @@ footer {
   bottom: 0;
   width: 100%;
   backdrop-filter: blur(6px);
+}
+
+/* Espaço reservado para o rodapé fixo */
+body::after {
+  content: "";
+  display: block;
+  height: 50px;
 }
 
 /* Responsividade */
